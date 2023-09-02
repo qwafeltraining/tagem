@@ -1,0 +1,178 @@
+<!DOCTYPE html >
+<html lang="en"  >
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title> التقيم  </title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg custom-navbar" aria-label="Twelfth navbar example">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="../public/image/logo.png"
+            height="60"
+            alt="Logo"
+            loading="lazy"
+          />
+        </a>
+        <a href="/main"  class="back-btn btn btn-dark" >تغير الحدث</a>
+      </div>
+    </nav>
+
+    <div class="container content">
+      <div class="online-tab px-4 py-3 my-4 text-center">
+        <div class="div2">
+          <form action="" method="post">
+            
+            <div class="form-group mb-2">
+              <label for="exampleFormControlInput1"><%= online[index][1]%> </label>
+              <input type="hidden"  class="input-type" name="input_type" value="<%= type %>">
+              <input type="hidden"  name="team" value="<%= team %>">
+              <input type="hidden"  name="event_name" value="<%= online[index][1]%>"> 
+            </div>
+            
+            <div class="mb-3">
+              <label for="meeting" class="form-label"></label>
+              <select class="form-select" aria-label="Default select example"  name ="code" required dir="rtl">
+              <option selected value="">اختار المتدرب  </option>
+                <% for(var i=0; i<codes.length ; i++) { %>
+                  <% if(codes[i][2] == team){ %>
+                      
+                      <option value="<%= codes[i][0] %>" >
+                      <%= codes[i][1] %>
+                      </option>
+                      <%
+                    }
+                } %>
+              </select> 
+            </div>
+           
+            <div class="input-cont all-inputs id2">
+              <div class="input-group mb-1 ">
+                  <textarea class="form-control" aria-label="With textarea" name="modadra" rows="2"  dir="rtl"></textarea>
+                  <div class="input-group-append">
+                      <span class="input-group-text">المبادرة</span>
+                  </div>
+              </div>
+  
+              <div class="input-group mb-3 ">
+                      <input type="number" max="<%= online[index][2]%>" min="0"  class="form-control "  name="Dmodadra" >
+                      <div class="input-group-append">
+                        <span class="input-group-text"><%= online[index][2]%> </span>
+                      </div>
+              </div>
+          </div>
+        <div class="input-cont all-inputs id3">
+            <div class="input-group mb-1 ">
+               
+                <textarea class="form-control" aria-label="With textarea" name="sloak" rows="2" dir="rtl"></textarea>
+                <div class="input-group-append">
+                    <span class="input-group-text">السلوكيات</span>
+                  </div>
+            </div>
+
+            <div class="input-group mb-3 ">
+                    <input type="number" max="<%= online[index][3]%>" min="0"  class="form-control" name="dsloak">
+                    <div class="input-group-append">
+                      <span class="input-group-text" ><%= online[index][3]%> </span>
+                    </div>
+            </div>
+        </div>
+        <div class="input-cont all-inputs id4">
+          <div class="input-group mb-1 ">
+             
+              <textarea class="form-control" aria-label="With textarea" name="active" rows="2" dir="rtl"></textarea>
+              <div class="input-group-append">
+                  <span class="input-group-text">التفاعل</span>
+                </div>
+          </div>
+
+          <div class="input-group mb-3 ">
+                  <input type="number" max="<%= online[index][4]%>" min="0"  class="form-control" name="dactive">
+                  <div class="input-group-append">
+                    <span class="input-group-text" ><%= online[index][4]%> </span>
+                  </div>
+          </div>
+        </div>  
+        <div class="input-cont all-inputs id5">
+          <div class="input-group mb-1 ">
+             
+              <textarea class="form-control" aria-label="With textarea" name="responsa" rows="2" dir="rtl"></textarea>
+              <div class="input-group-append">
+                  <span class="input-group-text">درجة تحمل المسؤولية /  اسايمنت</span>
+                </div>
+          </div>
+
+          <div class="input-group mb-3 ">
+                  <input type="number" max="<%= online[index][5]%>" min="0"  class="form-control"  name="dresponsa">
+                  <div class="input-group-append">
+                    <span class="input-group-text" ><%= online[index][5]%> </span>
+                  </div>
+          </div>
+        </div>
+        <div class="input-cont all-inputs id6">
+          <div class="input-group mb-1 ">
+             
+              <textarea class="form-control" aria-label="With textarea"  name="bonus" rows="2"  dir="rtl"></textarea>
+              <div class="input-group-append">
+                  <span class="input-group-text">بونص</span>
+                </div>
+          </div>
+
+          <div class="input-group mb-3 ">
+              <input type="number" max="<%= online[index][6]%>" min="0"  class="form-control"   name="dbonus">
+              <div class="input-group-append">
+                <span class="input-group-text" ><%= online[index][6]%> </span>
+              </div>
+          </div>
+        </div>
+        <!-- درجةة السيرفاى  -->
+        <div class="input-cont all-inputs id7">
+          <div class="input-group mb-3 ">
+                  <input type="number" max="<%= online[index][7]%>" min="0"  class="form-control"  name="servuy">
+                  <div class="input-group-append">
+                    <span class="input-group-text" ><%= online[index][7]%> </span>
+                  </div>
+          </div>
+        </div>
+        <!-- درجة شيت الحضور  -->
+        <div class="input-cont all-inputs id8">
+          <div class="input-group mb-3 ">
+                  <input type="number" max="<%= online[index][8]%>" min="0"  class="form-control"  name="attendance">
+                  <div class="input-group-append">
+                    <span class="input-group-text" ><%= online[index][8]%> </span>
+                  </div>
+          </div>
+        </div>
+        <div class="input-cont all-inputs id9">
+          <div class="input-group mb-1 ">
+             
+              <textarea class="form-control" aria-label="With textarea" name="rules" rows="2" dir="rtl"></textarea>
+              <div class="input-group-append">
+                  <span class="input-group-text">قواعد التدريب</span>
+                </div>
+          </div>
+
+          <div class="input-group mb-3 ">
+                  <input type="number" max="<%= online[index][9]%>" min="0"  class="form-control" name="drules">
+                  <div class="input-group-append">
+                    <span class="input-group-text" ><%= online[index][9]%> </span>
+                  </div>
+          </div>
+        </div>
+            <button type="submit" class="btn btn-primary"> تسجيل التقيم  </button>    
+          </form>
+          
+          
+        </div>
+      </div>  
+    </div>
+      <script src="../public/js/bootstrap.bundle.min.js"></script>
+      <script src="../public/js/main.js"></script>   
+
+  </body>
+</html>
