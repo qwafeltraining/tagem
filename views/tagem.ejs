@@ -29,7 +29,7 @@
           <form action="" method="post">
             
             <div class="form-group mb-2">
-              <label for="exampleFormControlInput1"><%= online[index][1]%> </label>
+              <label for="exampleFormControlInput1" class="evenrt-name"><%= online[index][1]%> </label>
               <input type="hidden"  class="input-type" name="input_type" value="<%= type %>">
               <input type="hidden"  name="team" value="<%= team %>">
               <input type="hidden"  name="event_name" value="<%= online[index][1]%>"> 
@@ -60,7 +60,7 @@
               </div>
   
               <div class="input-group mb-3 ">
-                      <input type="number" max="<%= online[index][2]%>" min="0"  class="form-control "  name="Dmodadra" >
+                      <input type="number" max="<%= online[index][2]%>" min="0" step=".01"  class="form-control "  name="Dmodadra" >
                       <div class="input-group-append">
                         <span class="input-group-text"><%= online[index][2]%> </span>
                       </div>
@@ -76,7 +76,7 @@
             </div>
 
             <div class="input-group mb-3 ">
-                    <input type="number" max="<%= online[index][3]%>" min="0"  class="form-control" name="dsloak">
+                    <input type="number" max="<%= online[index][3]%>" min="0" step=".01"  class="form-control" name="dsloak">
                     <div class="input-group-append">
                       <span class="input-group-text" ><%= online[index][3]%> </span>
                     </div>
@@ -92,7 +92,7 @@
           </div>
 
           <div class="input-group mb-3 ">
-                  <input type="number" max="<%= online[index][4]%>" min="0"  class="form-control" name="dactive">
+                  <input type="number" max="<%= online[index][4]%>" min="0" step=".01"  class="form-control" name="dactive">
                   <div class="input-group-append">
                     <span class="input-group-text" ><%= online[index][4]%> </span>
                   </div>
@@ -108,7 +108,7 @@
           </div>
 
           <div class="input-group mb-3 ">
-                  <input type="number" max="<%= online[index][5]%>" min="0"  class="form-control"  name="dresponsa">
+                  <input type="number" max="<%= online[index][5]%>" min="0" step=".01"  class="form-control"  name="dresponsa">
                   <div class="input-group-append">
                     <span class="input-group-text" ><%= online[index][5]%> </span>
                   </div>
@@ -124,7 +124,7 @@
           </div>
 
           <div class="input-group mb-3 ">
-              <input type="number" max="<%= online[index][6]%>" min="0"  class="form-control"   name="dbonus">
+              <input type="number" max="<%= online[index][6]%>" min="0" step=".01"  class="form-control"   name="dbonus">
               <div class="input-group-append">
                 <span class="input-group-text" ><%= online[index][6]%> </span>
               </div>
@@ -133,7 +133,7 @@
         <!-- درجةة السيرفاى  -->
         <div class="input-cont all-inputs id7">
           <div class="input-group mb-3 ">
-                  <input type="number" max="<%= online[index][7]%>" min="0"  class="form-control"  name="servuy">
+                  <input type="number" max="<%= online[index][7]%>" min="0" step=".01"  class="form-control"  name="servuy">
                   <div class="input-group-append">
                     <span class="input-group-text" ><%= online[index][7]%> </span>
                   </div>
@@ -142,7 +142,7 @@
         <!-- درجة شيت الحضور  -->
         <div class="input-cont all-inputs id8">
           <div class="input-group mb-3 ">
-                  <input type="number" max="<%= online[index][8]%>" min="0"  class="form-control"  name="attendance">
+                  <input type="number" max="<%= online[index][8]%>" min="0" step=".01"  class="form-control"  name="attendance">
                   <div class="input-group-append">
                     <span class="input-group-text" ><%= online[index][8]%> </span>
                   </div>
@@ -158,7 +158,7 @@
           </div>
 
           <div class="input-group mb-3 ">
-                  <input type="number" max="<%= online[index][9]%>" min="0"  class="form-control" name="drules">
+                  <input type="number" max="<%= online[index][9]%>" min="0" step=".01"  class="form-control" name="drules">
                   <div class="input-group-append">
                     <span class="input-group-text" ><%= online[index][9]%> </span>
                   </div>
