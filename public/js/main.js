@@ -5,6 +5,7 @@ $(".team-checkbox").hide();
 
 $( document ).ready(function() {
 
+
     $('.two-options').on('change', function (e) {
     
       $(".select-team").show();
