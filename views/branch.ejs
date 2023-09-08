@@ -1,0 +1,83 @@
+<!DOCTYPE html >
+<html lang="en"  >
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>اختيار الفريق   </title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg custom-navbar" aria-label="Twelfth navbar example">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="../public/image/logo.png"
+            height="60"
+            alt="Logo"
+            loading="lazy"
+          />
+        </a>
+        <button class="navbar-toggler rigght-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse custom-options shift" id="navbarsExample10">
+          <ul class="navbar-nav" dir="rtl">
+            <li class="nav-item ">
+              <a class="nav-link" href="/main" >التقيم العام </a>
+            </li>
+            <li class="nav-item active" >
+              <a class="nav-link" href="/branch">درجات  الفرع للفريق  </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container content">
+      <div class="online-tab px-4 py-3 my-4 text-center">
+        <H2 >درجات  الفرع  </H2>
+
+        <div class="div2">
+          <form action="" method="post">
+            
+            <div class="mb-3">
+                <label for="meeting" class="form-label"></label>
+                <select class="form-select" aria-label="Default select example"  name ="event" required dir="rtl">
+                <option selected value="">تحديد  الحدث </option>
+                <% for(var i=0; i<online.length ; i++) { 
+                    if(online[i][0] =="c"){%>
+                      <option value="<%= online[i][0] %>-<%= i %>" >
+                        <%= online[i][1] %>
+                      </option>
+                    <%  }
+                }
+
+             
+                %>
+                </select> 
+            </div>
+            <div class="mb-3">
+                <label for="meeting" class="form-label"></label>
+                <select class="form-select" aria-label="Default select example" name ="team" required dir="rtl">
+                <option selected value="">تحديد  الفريق </option>
+                <option value="1" > الفريق الاول</option>
+                <option value="2" > الفريق الثانى</option>
+                <option value="3" > الفريق الثالث</option>
+                <option value="4" > الفريق الرابع</option>
+                <option value="5" > الفريق الخامس</option>
+                </select> 
+            </div>
+            <button type="submit" class="btn btn-primary"   >  تقيم </button>    
+          </form>
+          
+          
+        </div>
+      </div>  
+    </div>
+      <script src="../public/js/bootstrap.bundle.min.js"></script>
+   
+
+  </body>
+</html>

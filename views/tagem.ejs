@@ -31,23 +31,92 @@
             <div class="form-group mb-2">
               <label for="exampleFormControlInput1" class="evenrt-name"><%= online[index][1]%> </label>
               <input type="hidden"  class="input-type" name="input_type" value="<%= type %>">
-              <input type="hidden"  name="team" value="<%= team %>">
+
+              <input type="hidden"  name="team" class="hidden-team" value="">
+         
               <input type="hidden"  name="event_name" value="<%= online[index][1]%>"> 
             </div>
-            
+            <div class="form-check team-checkbox mb-3" >
+              <input class="form-check-input" type="checkbox" value="" name="ismyteam" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+              هذا فريقي 
+              </label>
+            </div>
             <div class="mb-3">
               <label for="meeting" class="form-label"></label>
-              <select class="form-select" aria-label="Default select example"  name ="code" required dir="rtl">
+              <select class="form-select trainee" aria-label="Default select example"  name ="code" required dir="rtl">
               <option selected value="">اختار المتدرب  </option>
-                <% for(var i=0; i<codes.length ; i++) { %>
-                  <% if(codes[i][2] == team){ %>
-                      
-                      <option value="<%= codes[i][0] %>" >
-                      <%= codes[i][1] %>
-                      </option>
-                      <%
-                    }
-                } %>
+                  <% for(var i=0; i<codes.length ; i++) {
+                  if(team <= 5){
+                      if(codes[i][2] == team){ %>
+                        
+                        <option value="<%= codes[i][0] %>"  data-team="<%= codes[i][2] %>" >
+                        <%= codes[i][1] %>
+                        </option>
+                        <%
+                      }
+                  } else{
+                      if(team == 6){
+                        if(codes[i][3]=="اسكندرية"){ %>
+                          <option value="<%= codes[i][0] %>" data-team="<%= codes[i][2] %>">
+                          <%= codes[i][1] %>
+                          </option>
+                        <%
+                        } 
+                      }else if(team == 7){
+                        if(codes[i][3]=="اكتوبر"){ %>
+                          <option value="<%= codes[i][0] %>" data-team="<%= codes[i][2] %>">
+                          <%= codes[i][1] %>
+                          </option>
+                        <%
+                        } 
+                      }else if(team == 8){
+                        if(codes[i][3]=="المعادى"){ %>
+                          <option value="<%= codes[i][0] %>" data-team="<%= codes[i][2] %>">
+                          <%= codes[i][1] %>
+                          </option>
+                        <%
+                        } 
+                      }else if(team == 9){
+                        if(codes[i][3]=="المهندسين"){ %>
+                          <option value="<%= codes[i][0] %>" data-team="<%= codes[i][2] %>">
+                          <%= codes[i][1] %>
+                          </option>
+                        <%
+                        } 
+                      }else if(team == 10){
+                        if(codes[i][3]=="فيصل"){ %>
+                          <option value="<%= codes[i][0] %>"data-team="<%= codes[i][2] %>" >
+                          <%= codes[i][1] %>
+                          </option>
+                        <%
+                        } 
+                      }
+                      else if(team == 11){
+                        if(codes[i][3]=="حلوان"){ %>
+                          <option value="<%= codes[i][0] %>" data-team="<%= codes[i][2] %>">
+                          <%= codes[i][1] %>
+                          </option>
+                        <%
+                        } 
+                      }else if(team == 12){
+                        if(codes[i][3]=="مدينة نصر"){ %>
+                          <option value="<%= codes[i][0] %>" data-team="<%= codes[i][2] %>">
+                          <%= codes[i][1] %>
+                          </option>
+                        <%
+                        } 
+                      }
+                      else if(team == 13){
+                        if(codes[i][3]=="مصر الجديدة"){ %>
+                          <option value="<%= codes[i][0] %>"data-team="<%= codes[i][2] %>" >
+                          <%= codes[i][1] %>
+                          </option>
+                        <%
+                        } 
+                      }
+                  } 
+                  } %>
               </select> 
             </div>
            
@@ -75,7 +144,7 @@
                   </div>
             </div>
 
-            <div class="input-group mb-3 ">
+            <div class="input-group mb-3 class-input ">
                     <input type="number" max="<%= online[index][3]%>" min="0" step=".01"  class="form-control" name="dsloak">
                     <div class="input-group-append">
                       <span class="input-group-text" ><%= online[index][3]%> </span>
@@ -91,7 +160,7 @@
                 </div>
           </div>
 
-          <div class="input-group mb-3 ">
+          <div class="input-group mb-3 class-input">
                   <input type="number" max="<%= online[index][4]%>" min="0" step=".01"  class="form-control" name="dactive">
                   <div class="input-group-append">
                     <span class="input-group-text" ><%= online[index][4]%> </span>
@@ -99,15 +168,14 @@
           </div>
         </div>  
         <div class="input-cont all-inputs id5">
-          <div class="input-group mb-1 ">
-             
-              <textarea class="form-control" aria-label="With textarea" name="responsa" rows="2" dir="rtl"></textarea>
-              <div class="input-group-append">
+          <div class="input-group mb-1 " dir="rtl">
+                <div class="input-group-append">
                   <span class="input-group-text">درجة تحمل المسؤولية /  اسايمنت</span>
                 </div>
+              <textarea class="form-control" aria-label="With textarea" name="responsa" style="width:100%;" rows="2" dir="rtl"></textarea>
           </div>
 
-          <div class="input-group mb-3 ">
+          <div class="input-group mb-3 class-input">
                   <input type="number" max="<%= online[index][5]%>" min="0" step=".01"  class="form-control"  name="dresponsa">
                   <div class="input-group-append">
                     <span class="input-group-text" ><%= online[index][5]%> </span>

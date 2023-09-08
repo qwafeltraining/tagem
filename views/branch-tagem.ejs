@@ -1,0 +1,126 @@
+<!DOCTYPE html >
+<html lang="en"  >
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title> التقيم  </title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg custom-navbar" aria-label="Twelfth navbar example">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="../public/image/logo.png"
+            height="60"
+            alt="Logo"
+            loading="lazy"
+          />
+        </a>
+        <a href="/branch"  class="back-btn btn btn-dark" >تغير الحدث</a>
+      </div>
+    </nav>
+
+    <div class="container content">
+      <div class="online-tab px-4 py-3 my-4 text-center">
+        <div class="div2">
+          <form action="" method="post">
+            
+            <div class="form-group mb-2">
+              <label for="exampleFormControlInput1" class="evenrt-name"><%= event_name %> </label>
+              <input type="hidden"  class="input-type" name="input_type" value="c">
+
+              <input type="hidden"  name="team" value="<%= team   %>">
+         
+              <input type="hidden"  name="event_name" value="<%= event_name %> "> 
+              <input type="hidden" class="user_name"  name="user_name" > 
+            </div>
+            
+            <div class="mb-3">
+              <label for="meeting" class="form-label"></label>
+              <select class="form-select code-select" aria-label="Default select example"  name ="code" required dir="rtl">
+              <option selected value="">اختار المتدرب  </option>
+                <%
+                if(exists ==1){
+                  for(var i=0; i<data.length ; i++) {
+                        %>
+                        <option value="<%= data[i][1] %>" >
+                        <%= data[i][8] %>
+                        </option>
+                        <%
+                }
+                }else{
+                  %>
+                    <option value="" >
+                      لا يوجد متدربين  لتقيمهم
+                    </option>
+                  <%
+                }
+                
+                %>
+              </select> 
+            </div>
+           
+          
+        <div class="input-cont all-inputs">
+            <div class="input-group mb-1 ">
+               
+                <textarea class="form-control sloak" aria-label="With textarea" name="sloak" rows="2" required dir="rtl"></textarea>
+                <div class="input-group-append">
+                    <span class="input-group-text">السلوكيات</span>
+                  </div>
+            </div>
+
+            <div class="input-group mb-3 class-input dsloak">
+                    <input type="number" max="" min="0" step=".01" required  class="form-control" name="dsloak">
+                    <div class="input-group-append">
+                      <span class="input-group-text "> </span>
+                    </div>
+            </div>
+        </div>
+        <div class="input-cont all-inputs">
+          <div class="input-group mb-1 ">
+             
+              <textarea class="form-control active" aria-label="With textarea" name="active" rows="2"required dir="rtl"></textarea>
+              <div class="input-group-append">
+                  <span class="input-group-text">التفاعل</span>
+                </div>
+          </div>
+
+          <div class="input-group mb-3 class-input dactive">
+                  <input type="number" max="" min="0" step=".01" required class="form-control" name="dactive">
+                  <div class="input-group-append">
+                    <span class="input-group-text " > </span>
+                  </div>
+          </div>
+        </div>  
+        <div class="input-cont all-inputs">
+          <div class="input-group mb-1 " dir="rtl">
+                <div class="input-group-append">
+                  <span class="input-group-text">درجة تحمل المسؤولية /  اسايمنت</span>
+                </div>
+              <textarea class="form-control respon" aria-label="With textarea"required name="responsa" style="width:100%;" rows="2" dir="rtl"></textarea>
+          </div>
+
+          <div class="input-group mb-3 class-input drespon">
+                  <input type="number" max="" min="0" step=".01"  class="form-control" required name="dresponsa">
+                  <div class="input-group-append">
+                    <span class="input-group-text " > </span>
+                  </div>
+          </div>
+        </div>
+       
+            <button type="submit" class="btn btn-primary"> تسجيل التقيم  </button>    
+          </form>
+          
+          
+        </div>
+      </div>  
+    </div>
+      <script src="../public/js/bootstrap.bundle.min.js"></script>
+      <script src="../public/js/getdata.js"></script>   
+
+  </body>
+</html>

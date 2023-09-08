@@ -1,5 +1,57 @@
+$(".option-team").hide();
+$(".option-branch").hide();
+$(".select-team").hide();
+$(".team-checkbox").hide();
+
 $( document ).ready(function() {
+
+    $('.two-options').on('change', function (e) {
+    
+      $(".select-team").show();
+
+      if (this.value == "team"){
+        $(".option-team").show();
+        $(".option-branch").hide();
+
+      }else{
+        $(".option-branch").show();
+        $(".option-team").hide();
+
+      }
+    });
+    $('.trainee').on('change', function (e) {
+    
+      $(".hidden-team").val($(".trainee").find(":selected").data('team'));
+
+     
+    });
+    $('.team-checkbox').on('change', function (e) {
+        if(  $('.team-checkbox input').is(':checked')) {
+        
+          $(".id3 .class-input").show();
+          $(".id4 .class-input").show();
+          $(".id5 .class-input").show();
+          $(".id3 input").prop('required',true);
+          $(".id4 input").prop('required',true);
+          $(".id5 input").prop('required',true);
+            
+        }else{
+          $(".id3 .class-input").hide();
+          $(".id4 .class-input").hide();
+          $(".id5 .class-input").hide();
+          
+          $(".id3 input").prop('required',false);
+          $(".id4 input").prop('required',false);
+          $(".id5 input").prop('required',false);
+        }
+    });
+
+
+
+
     var type = $('.input-type').val()
+
+    
     if(type == 'a'){
 
       $(".all-inputs").hide();
@@ -36,17 +88,21 @@ $( document ).ready(function() {
     else if(type == 'c'){
 
       $(".all-inputs").hide();
-  
+      
+      $(".team-checkbox").show();
+      
       $(".id3").show();
       $(".id4").show();
       $(".id5").show();
-      $(".id3 input").prop('required',true);
+      
       $(".id3 textarea").prop('required',true);
-      $(".id4 input").prop('required',true);
-      $(".id4 textarea").prop('required',true);
-      $(".id5 input").prop('required',true);
-      $(".id5 textarea").prop('required',true);
     
+      $(".id4 textarea").prop('required',true);
+     
+      $(".id5 textarea").prop('required',true);
+      $(".id3 .class-input").hide();
+      $(".id4 .class-input").hide();
+      $(".id5 .class-input").hide();
 
     }
     else if(type == 'd'){

@@ -12,12 +12,32 @@ body {
   font-family: 'Lalezar', cursive;
 
 }
-
-
+.navbar {
+  background-color:#9A53EF ;
+}
+.navbar-toggler:focus{
+  box-shadow: 0 0 0 0 !important ;
+  outline: 0.25rem solid #FFF !important;
+}
+.team-checkbox{
+  display: flex;
+  justify-content: end;
+}
 .all-inputs{
   display: none;
 }
-
+.active a{
+  color: #FFF !important ;
+}
+.nav-item a{
+  color: #000;
+}
+.nav-item:hover a{
+color: #000;
+}
+.navbar-collapse{
+  justify-content: flex-end  !important;
+}
 .evenrt-name{
 
   font-weight: 800;
