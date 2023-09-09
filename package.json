@@ -16,13 +16,5 @@
     "googleapis": "^126.0.0",
     "netlify-lambda": "^2.0.16",
     "nodemon": "^3.0.1"
-  },
-  "engines": {
-    "node": "18.x"
-  },
-  
-  "scripts": {
-    "start": "nodemon index.js"   
   }
-
 }
