@@ -466,7 +466,7 @@ app.post("/branch-tagem", async (req, res) => {
             await googleSheets.spreadsheets.values.clear({
               auth,
               spreadsheetId,
-              range: "branch!A"+row+":J"+row,
+              range: "branch!A"+row+":H"+row,
                
             });
             break;
@@ -482,7 +482,7 @@ app.post("/branch-tagem", async (req, res) => {
             await googleSheets.spreadsheets.values.clear({
               auth,
               spreadsheetId,
-              range: "branch!A"+(i+2)+":J"+(i+2),
+              range: "branch!A"+(i+2)+":H"+(i+2),
                
             });
             break;
