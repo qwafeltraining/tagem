@@ -136,41 +136,33 @@ app.get("/tagem", async (req, res) => {
           if(!req.cookies.event || !req.cookies.currentenvents){
               res.redirect("/main");
           }else{
-              if(!req.cookies.codes ){
-                  const auth = new google.auth.GoogleAuth({
-                    keyFile: "credentials.json",
-                    scopes: "https://www.googleapis.com/auth/spreadsheets",
-                  });
-                  // Create client instance for auth
-                  const client = await auth.getClient();
-                  const googleSheets = google.sheets({ version: "v4", auth: client });
-                  const spreadsheetId = "1VatSeUdpQkP4YX2xrzBXwn9PZzxkfs96-QEXVszCxvw";
-                  const getdata = await googleSheets.spreadsheets.values.get({
-                    auth,
-                    spreadsheetId,
-                    range: "data!A:D",
-                  });
-                  codes = getdata.data.values
-          
-                  res.cookie("codes",codes,{maxAge:1800000});
-                  let ejsdata ={
-                    online : req.cookies.currentenvents,
-                    type : req.cookies.event.charAt(0),
-                    index :req.cookies.event.charAt(2),
-                    team :req.cookies.team,
-                    codes :codes,
-                  }
-                  res.render("tagem",ejsdata);
-                }else{
-                    let ejsdata ={
-                      online : req.cookies.currentenvents,
-                      type : req.cookies.event.charAt(0),
-                      index :req.cookies.event.charAt(2),
-                      team :req.cookies.team,
-                      codes :req.cookies.codes,
-                    }
-                    res.render("tagem",ejsdata);
-                }
+        
+            const auth = new google.auth.GoogleAuth({
+              keyFile: "credentials.json",
+              scopes: "https://www.googleapis.com/auth/spreadsheets",
+            });
+            // Create client instance for auth
+            const client = await auth.getClient();
+            const googleSheets = google.sheets({ version: "v4", auth: client });
+            const spreadsheetId = "1VatSeUdpQkP4YX2xrzBXwn9PZzxkfs96-QEXVszCxvw";
+            const getdata = await googleSheets.spreadsheets.values.get({
+              auth,
+              spreadsheetId,
+              range: "data!A:D",
+            });
+            codes = getdata.data.values
+    
+            res.cookie("codes",codes,{maxAge:1800000});
+            let ejsdata ={
+              online : req.cookies.currentenvents,
+              type : req.cookies.event.charAt(0),
+              index :req.cookies.event.charAt(2),
+              team :req.cookies.team,
+              codes :codes,
+            }
+            res.render("tagem",ejsdata);
+              
+                
           }
     }
 });
