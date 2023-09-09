@@ -133,10 +133,10 @@ app.get("/tagem", async (req, res) => {
     res.redirect("/");
            
     }else{
-          if(!req.cookies.event){
+          if(!req.cookies.event || !req.cookies.currentenvents){
               res.redirect("/main");
           }else{
-              if(!req.cookies.codes || !req.cookies.currentenvents){
+              if(!req.cookies.codes ){
                   const auth = new google.auth.GoogleAuth({
                     keyFile: "credentials.json",
                     scopes: "https://www.googleapis.com/auth/spreadsheets",
@@ -145,23 +145,16 @@ app.get("/tagem", async (req, res) => {
                   const client = await auth.getClient();
                   const googleSheets = google.sheets({ version: "v4", auth: client });
                   const spreadsheetId = "1VatSeUdpQkP4YX2xrzBXwn9PZzxkfs96-QEXVszCxvw";
-                  const getRows = await googleSheets.spreadsheets.values.get({
-                    auth,
-                    spreadsheetId,
-                    range: "current-events!A2:J20",
-                  });
                   const getdata = await googleSheets.spreadsheets.values.get({
                     auth,
                     spreadsheetId,
                     range: "data!A:D",
                   });
-                  djoin = getRows.data.values
                   codes = getdata.data.values
           
-                  res.cookie("currentenvents",djoin,{maxAge:1800000});
                   res.cookie("codes",codes,{maxAge:1800000});
                   let ejsdata ={
-                    online : djoin,
+                    online : req.cookies.currentenvents,
                     type : req.cookies.event.charAt(0),
                     index :req.cookies.event.charAt(2),
                     team :req.cookies.team,
